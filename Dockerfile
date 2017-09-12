@@ -2,7 +2,7 @@
 
 FROM ruby:2.4.1
 
-RUN apt-get update && apt-get install vim -y
+RUN apt-get update && apt-get install vim postgresql-client redis-tools cifs-utils -y
 
 RUN gem install rails
 
@@ -22,7 +22,6 @@ COPY . /usr/src/app
 WORKDIR /usr/src/app
 
 RUN bundle install
-
 
 EXPOSE 3333
 CMD ["rails", "server"]
